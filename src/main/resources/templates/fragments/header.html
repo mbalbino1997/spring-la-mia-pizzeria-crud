@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header Example</title>
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}" href="/">Home</a></li>
+                <li><a th:href="@{/pizze}" href="/pizze">Tutte le pizze</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

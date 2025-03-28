@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Pizze</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <form action="/pizze/searchByName" method="get">
+        <h1>Lista delle Pizze</h1>
+        <div>
+            <input type="text" name="name" placeholder="Cerca una pizza...">
+            <button type="submit">Cerca</button>
+
+        </div>
+    </form>
+
+    <main>
+        
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrizione</th>
+                    <th>Prezzo</th>
+                    <th>Immagine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pizza : ${pizze}">
+                    <td th:text="${pizza.name}"></td>
+                    <td th:text="${pizza.description}"></td>
+                    <td th:text="${#numbers.formatDecimal(pizza.price, 1, 2)} + '€'"></td>
+                    <td>
+                        <img th:src="@{/images/{img}(img=${pizza.url})}" alt="Immagine della pizza">
+                    </td>
+                    <td>
+                        <a th:href="@{/pizze/{id}(id=${pizza.id})}">
+                            <button>Dettagli</button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

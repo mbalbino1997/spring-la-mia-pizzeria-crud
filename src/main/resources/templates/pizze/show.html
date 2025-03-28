@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Pizza</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        img { width: 200px; border-radius: 8px; margin-top: 10px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background: #f8edeb; }
+        .back { display: block; margin-top: 20px; }
+    </style>
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="container">
+        <h1 th:text="${pizza.name}"></h1>
+        <img th:src="@{/images/{img}(img=${pizza.url})}" alt="Immagine della pizza">
+        <p th:text="${pizza.description}"></p>
+        <h3 th:text="${#numbers.formatDecimal(pizza.price, 1, 2)} + '€'"></h3>
+        <a href="/pizze" class="back">← Torna alla lista</a>
+    </div>
+
+</body>
+</html>

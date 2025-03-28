@@ -1,0 +1,32 @@
+/* Stili specifici per l'header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #e53e3e;
+    transform: scale(1.05);
+}
+
+nav a:active {
+    background-color: #d04d3c;
+}

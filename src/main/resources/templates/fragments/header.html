@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Header Example</title>
+    <title>Header</title>
     <link rel="stylesheet" href="/css/global.css">
 </head>
 <body>
@@ -11,6 +11,7 @@
             <ul>
                 <li><a th:href="@{/}" href="/">Home</a></li>
                 <li><a th:href="@{/pizze}" href="/pizze">Tutte le pizze</a></li>
+                <li><a th:href="@{/pizze/create}" href="/pizze/create">Aggiungi una pizza</a></li>
             </ul>
         </nav>
     </header>

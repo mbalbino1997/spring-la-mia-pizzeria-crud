@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -66,7 +65,7 @@ public String show(@PathVariable Integer id, Model model) {
         }
         repository.save(formPizza);
         
-        return "redirect:/pizze/index";
+        return "redirect:/pizze";
     }
     
     

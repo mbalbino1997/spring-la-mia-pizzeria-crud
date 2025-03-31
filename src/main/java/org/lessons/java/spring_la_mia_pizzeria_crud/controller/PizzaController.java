@@ -67,6 +67,27 @@ public String show(@PathVariable Integer id, Model model) {
         
         return "redirect:/pizze";
     }
+
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id,Model model) {
+        Pizza pizza = repository.findById(id).orElse(null);
+        model.addAttribute("pizza", pizza);
+if (pizza == null) {
+    return "redirect:/pizze";
+}
+        return "pizze/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String update( @Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingresult, Model model) {
+        if(bindingresult.hasErrors()) {
+            return "pizze/edit";
+        }
+        repository.save(formPizza);
+        
+        return "redirect:/pizze";
+    }
     
     
     

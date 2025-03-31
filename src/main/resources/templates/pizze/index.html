@@ -39,10 +39,17 @@
                         <img th:src="@{/images/{img}(img=${pizza.url})}" alt="Immagine della pizza">
                     </td>
                     <td>
+                        <a th:href="@{/pizze/edit/{id}(id=${pizza.id})}">
+                            <button>Modifica</button>
+                        </a>
+                    </td>
+
+                    <td>
                         <a th:href="@{/pizze/{id}(id=${pizza.id})}">
                             <button>Dettagli</button>
                         </a>
                     </td>
+
                 </tr>
             </tbody>
         </table>

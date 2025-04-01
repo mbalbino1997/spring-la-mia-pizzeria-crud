@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -88,6 +90,14 @@ if (pizza == null) {
         
         return "redirect:/pizze";
     }
+
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        repository.deleteById(id);
+        return "redirect:/pizze";
+    }
+    
     
     
     
